@@ -17,10 +17,12 @@ var client = new Twitter(keys.twitter);
 
 // Global variables
 
-// var command = process.argv[2];
+var command = process.argv[2];
 
 var node = process.argv;
 
+
+// Twitter Function
 function tweets()  {
 
     var params = {screen_name: 'All_The_Baez'};
@@ -47,31 +49,53 @@ function tweets()  {
   }
 });
 } // end of function
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// Global Functions
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // if process.argv[2] = tweets, run the tweets function
 if (command === 'tweets'| command === 'my-tweets') {
     tweets();
-} else if (command === 'songify'){
+} 
+
+if (command === 'songify' | command === 'spotify' | command === 'song'){
     songify();
 }
-
-// end of tweets function
-
-/*-------------------------------------------------------
--------------------------------------------------------
---------------------------------------------------------
----------------------------------------------------*/
-
-
+///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+//
+//
+//
 // Begin spotify function
-var song = node[3];
+
 
 function songify() {
-spotify.search({ type: 'track', query: song }, function(err, data) {
+
+    var song = node[3];
+
+spotify.search({ type: 'track', query: '"' + song + '"' }, function(err, data) {
 
     var songData = data.tracks.items[0];
     if (err) {
       return console.log('Error occurred: ' + err);
+
     }
 
     console.log('');
